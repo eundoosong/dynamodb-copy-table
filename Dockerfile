@@ -11,4 +11,4 @@ WORKDIR /project
 COPY . /project
 RUN pip install -r requirements.txt
 
-ENTRYPOINT ["python", "dynamodb-copy-table.py"]
+ENTRYPOINT ["python", "/project/dynamodb-copy-table.py"]

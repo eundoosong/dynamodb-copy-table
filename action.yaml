@@ -1,0 +1,27 @@
+name: 'DynamoDB copy table'
+description: 'Actions for copying dynamodb table'
+inputs:
+#  aws-access-key-id:
+#    description: 'aws access key id'
+#    required: true
+#  aws-secret-access-key:
+#    description: 'aws secret access key'
+#    required: true
+  src:
+    description: 'source table to copy to destination'
+    required: true
+  dst:
+    description: 'destination table to be copied from source'
+    required: true
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+#  env:
+#    AWS_ACCESS_KEY_ID: ${{ inputs.aws-access-key-id }}
+#    AWS_SECRET_ACCESS_KEY: ${{ inputs.aws-secret-access-key }}
+#    AWS_DEFAULT_REGION: ap-northeast-2
+#    DISABLE_CREATION: yes
+  args:
+    - ${{ inputs.src }}
+    - ${{ inputs.dst }}
+
